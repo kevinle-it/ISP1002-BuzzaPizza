@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ToppingTableViewController.swift
 //  BuzzaPizza
 //
 //  Created by Tri Le on 4/20/22.
@@ -7,46 +7,43 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ToppingTableViewController: UITableViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     var historyOrderList: HistoryOrderList!
+    var selectedOrderIndex: Int?
+    var isEditMode: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
-    // Reload table view data after go back from order scene
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return historyOrderList.hisroryOrders.count
+        return 0
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "order", for: indexPath)
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel!.text = historyOrderList.hisroryOrders[indexPath.row].toppingText
-        // Enable text wrapping on table cells
-        cell.textLabel!.numberOfLines = 0
-        cell.textLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
 
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -56,19 +53,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     */
 
+    /*
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
+    */
 
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
     }
     */
 
@@ -80,16 +80,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     */
 
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        // pass over the movieList to the destination (AddMovieViewController)
-        let dst = segue.destination as! ToppingTableViewController
-        dst.historyOrderList = historyOrderList
     }
-}
+    */
 
+}

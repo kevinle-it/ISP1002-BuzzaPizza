@@ -10,13 +10,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    // History Order List to use globally in the app
+    var historyOrderList = HistoryOrderList()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // Get Main View Controller to inject a single intance of history order list created above
+        let navController = window?.rootViewController as! UINavigationController
+        let historyOrderViewController = navController.topViewController as! ViewController
+        historyOrderViewController.historyOrderList = historyOrderList
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -37,7 +37,7 @@ class HistoryOrder {
             // Add "and" as a linking word to the last topping in the list for a more natural sentence.
             toppingsToConvert[toppingsToConvert.count - 1] = String(format: "and %@.", lastTopping);
 
-            self.toppingText = toppingsToConvert.joined(separator: ",")
+            self.toppingText = toppingsToConvert.joined(separator: ", ")
         }
     }
 }

@@ -130,6 +130,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="QqO-Lm-RvZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="hB6-hM-Xk6" id="DYG-cJ-476"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,7 +141,7 @@
         <!--Choose Toppings-->
         <scene sceneID="n3r-VM-s0b">
             <objects>
-                <tableViewController id="NJo-pv-VgP" sceneMemberID="viewController">
+                <tableViewController id="NJo-pv-VgP" customClass="ToppingTableViewController" customModule="BuzzaPizza" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OSc-Xd-YQY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
