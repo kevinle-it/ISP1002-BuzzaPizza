@@ -29,9 +29,8 @@ class ToppingTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-        
         // Save selected topping of history order (to update on UITableView below in viewWillLayoutSubviews())
-        if let order = historyOrderToModify {
+        if let order = historyOrderToModify, isEditMode {
             let selectedToppingList = order.toppings
             
             if selectedToppingList.count > 0 {
@@ -43,13 +42,6 @@ class ToppingTableViewController: UITableViewController {
                 }
             }
         }
-    }
-    
-    // Reload table view data after go back from order scene to this scene to show newly added history order (if any)
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Reload table view data
-        tableView.reloadData()
     }
     
     override func viewWillLayoutSubviews() {
@@ -166,10 +158,12 @@ class ToppingTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        var selectedTopping: String!
-        historyOrderToModify.toppings = []
+
+        // Update the historyOrderToModify selected toppings to prepare for
+        // passing to destination segue below
         if let indexPaths = tableView.indexPathsForSelectedRows {
+            var selectedTopping: String!
+            historyOrderToModify.toppings = []
             for idx in indexPaths {
                 selectedTopping = TOPPINGS[idx.row]
                 historyOrderToModify.toppings.append(selectedTopping)

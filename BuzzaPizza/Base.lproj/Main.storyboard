@@ -201,6 +201,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldEditingChanged:" destination="5bP-PO-iYI" eventType="editingChanged" id="6aw-hy-xLy"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPd-9o-oUq">
                                 <rect key="frame" x="20" y="184" width="63" height="21"/>
@@ -215,6 +218,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldEditingChanged:" destination="5bP-PO-iYI" eventType="editingChanged" id="u8a-aB-0Jz"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDg-TV-xnI">
                                 <rect key="frame" x="20" y="255" width="31" height="21"/>
@@ -229,6 +235,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldEditingChanged:" destination="5bP-PO-iYI" eventType="editingChanged" id="jFx-ts-0EZ"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unL-9B-lA3">
                                 <rect key="frame" x="20" y="326" width="70" height="21"/>
@@ -243,6 +252,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldEditingChanged:" destination="5bP-PO-iYI" eventType="editingChanged" id="Jgp-8z-8XJ"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5QY-my-gBT"/>
@@ -273,10 +285,17 @@
                     <navigationItem key="navigationItem" title="Order" id="Dga-ns-1Tc">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="GOh-kT-Kf4">
                             <connections>
-                                <segue destination="5sh-Xq-zO8" kind="unwind" identifier="unwindOrderToTopping" unwindAction="unwindSegueFor:towards:" id="epl-ew-KUq"/>
+                                <action selector="save:" destination="5bP-PO-iYI" id="JSx-oK-WTd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressField" destination="Jvr-HW-rzk" id="sxS-iy-M04"/>
+                        <outlet property="cityField" destination="IJP-lz-L9c" id="VDz-eh-sob"/>
+                        <outlet property="nameField" destination="xaF-1u-wTo" id="e5s-e9-BSV"/>
+                        <outlet property="zipCodeField" destination="k9v-YV-sIp" id="gsM-bi-9Oq"/>
+                        <segue destination="5sh-Xq-zO8" kind="unwind" identifier="unwindFromOrderToHome" unwindAction="unwindSegueFor:towards:" id="P6q-mZ-76a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zth-d4-NH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="5sh-Xq-zO8" userLabel="Exit" sceneMemberID="exit"/>

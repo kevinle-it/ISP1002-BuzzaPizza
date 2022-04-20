@@ -44,4 +44,11 @@ class HistoryOrder {
             self.toppingText = toppingsToConvert.joined(separator: ", ")
         }
     }
+    
+    func setOrderInfo(_ name: String, _ address: String, _ city: String, _ zipCode: String) {
+        self.name = name
+        self.address = address
+        self.city = city
+        self.zipCode = zipCode
+    }
 }

@@ -12,8 +12,11 @@ class HistoryOrderList {
     
     init() {
         let toppings = ["Pepperoni", "Bacon", "Mushroom", "Tomatoes", "Olives", "Green Peppers", "Onions", "Jalapenos"]
+        var order: HistoryOrder!
         for _ in 1...10 {
-            addHistoryOrder(order: HistoryOrder(toppings: toppings))
+            order = HistoryOrder(toppings: toppings)
+            order.setOrderInfo("My Name", "My Address", "My City", "My ZipCode")
+            addHistoryOrder(order: order)
         }
     }
     
