@@ -19,7 +19,13 @@ class HistoryOrderList {
     
     // Add new history order
     func addHistoryOrder(order: HistoryOrder) {
-        hisroryOrders.append(order)
+        if let index = hisroryOrders.firstIndex(where: {$0.id == order.id}) {
+            // Order exists => Update data
+            hisroryOrders[index] = order
+        } else {
+            // Order not found => Add new
+            hisroryOrders.append(order)
+        }
     }
     
     // Remove existing history order

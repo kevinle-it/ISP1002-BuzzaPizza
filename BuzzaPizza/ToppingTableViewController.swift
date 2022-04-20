@@ -174,6 +174,7 @@ class ToppingTableViewController: UITableViewController {
                 selectedTopping = TOPPINGS[idx.row]
                 historyOrderToModify.toppings.append(selectedTopping)
             }
+            historyOrderToModify.updateToppingText()
         }
         
         // pass over the historyOrderToModify to the destination (OrderViewController)

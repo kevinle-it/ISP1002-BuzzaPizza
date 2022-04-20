@@ -21,6 +21,10 @@ class HistoryOrder {
     init(toppings: [String]) {
         self.toppings = toppings
         
+        updateToppingText()
+    }
+
+    func updateToppingText() {
         // Convert from array list of toppings to a string with comma-separated toppings
         // ["Mozzarella", "BBQ Sauce", "Tomato"] => "Mozzarella, BBQ Sauce, and Tomato"
         var toppingsToConvert = toppings;

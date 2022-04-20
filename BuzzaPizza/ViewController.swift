@@ -116,5 +116,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             dst.historyOrderToModify = HistoryOrder()
         }
     }
+    
+    // Segue OrderViewController -> this Root ViewController
+    @IBAction func unwindSegue(for unwindSegue: UIStoryboardSegue,
+                               towards subsequentVC: UIViewController) {
+        if let srcViewController = unwindSegue.source as? OrderViewController {
+            self.historyOrderToModify = srcViewController.historyOrderToModify
+
+            // Delegate to addHistoryOrder() for checking whether to update or add new data
+            historyOrderList.addHistoryOrder(order: historyOrderToModify)
+        }
+    }
 }
 
