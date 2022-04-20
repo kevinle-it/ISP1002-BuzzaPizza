@@ -183,7 +183,7 @@
         <!--Order-->
         <scene sceneID="Uho-CR-wV5">
             <objects>
-                <viewController id="5bP-PO-iYI" sceneMemberID="viewController">
+                <viewController id="5bP-PO-iYI" customClass="OrderViewController" customModule="BuzzaPizza" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRy-c3-e5l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,7 +280,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n7R-hh-spe"/>
+        <segue reference="N1q-Aw-whc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brand_buzza_pizza" width="952" height="232"/>

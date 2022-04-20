@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     var historyOrderList: HistoryOrderList!
+    var historyOrderToModify: HistoryOrder!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,16 +104,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // pass over the historyOrderList to the destination (ToppingTableViewController) and then (OrderViewController) afterward
         let dst = segue.destination as! ToppingTableViewController
-        dst.historyOrderList = historyOrderList
         
-        // pass over the current mode and selected row index (if any) to the destination (DetailsViewController)
+        // pass over the current mode and selected row index (if any) to the destination (ToppingTableViewController)
         if segue.identifier == "edit" {
             dst.isEditMode = true
             if let selectedRow = tableView.indexPathForSelectedRow?.row {
-                dst.selectedOrderIndex = selectedRow
+                dst.historyOrderToModify = historyOrderList.hisroryOrders[selectedRow]
             }
         } else if segue.identifier == "add" {
             dst.isEditMode = false
+            dst.historyOrderToModify = HistoryOrder()
         }
     }
 }

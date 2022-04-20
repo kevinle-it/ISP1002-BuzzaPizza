@@ -14,9 +14,11 @@ class ToppingTableViewController: UITableViewController {
     let DEFAULT_ROW_COLOR = UIColor(white: 0, alpha: 0)
     var toppingSelectionStatuses = Array(repeating: false, count: 8)
     
-    var historyOrderList: HistoryOrderList!
-    var selectedOrderIndex: Int?
+//    var historyOrderList: HistoryOrderList!
+//    var selectedOrderIndex: Int?
     var isEditMode: Bool = false
+    
+    var historyOrderToModify: HistoryOrder!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +28,18 @@ class ToppingTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
         
-        // Set selected topping of history order (to update)
-        if isEditMode && selectedOrderIndex != nil {
-            let selectedOrder = historyOrderList.hisroryOrders[selectedOrderIndex!]
-            let selectedToppingList = selectedOrder.toppings
+        // Save selected topping of history order (to update on UITableView below in viewWillLayoutSubviews())
+        if let order = historyOrderToModify {
+            let selectedToppingList = order.toppings
             
-            for (index, tp) in TOPPINGS.enumerated() {
-                if selectedToppingList.contains(tp) {
-                    // Init the status list
-                    toppingSelectionStatuses[index] = true
-                    // Select the rows
-                    let indexPath = IndexPath(row: index, section: 0)
-                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-                    tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
+            if selectedToppingList.count > 0 {
+                for (index, tp) in TOPPINGS.enumerated() {
+                    if selectedToppingList.contains(tp) {
+                        // Init the status list
+                        toppingSelectionStatuses[index] = true
+                    }
                 }
             }
         }
@@ -47,7 +47,26 @@ class ToppingTableViewController: UITableViewController {
     
     // Reload table view data after go back from order scene to this scene to show newly added history order (if any)
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload table view data
         tableView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        // Highlight selected rows in this lifecycle method, after subviews
+        // are about layouting, to prevent warning of layouting this
+        // UITableView's visible cells while it has not been added
+        // to the window view hierarchy yet
+        var indexPath: IndexPath!
+        for (index, isSelected) in toppingSelectionStatuses.enumerated() {
+            if isSelected {
+                indexPath = IndexPath(row: index, section: 0)
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -68,7 +87,8 @@ class ToppingTableViewController: UITableViewController {
         // Configure the cell...
         let currentToppingRow = TOPPINGS[indexPath.row]
         cell.textLabel!.text = currentToppingRow
-        cell.selectionStyle = .none
+        // Remove default selected row style color
+        // cell.selectionStyle = .none
 
         return cell
     }
@@ -140,14 +160,25 @@ class ToppingTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        var selectedTopping: String!
+        historyOrderToModify.toppings = []
+        if let indexPaths = tableView.indexPathsForSelectedRows {
+            for idx in indexPaths {
+                selectedTopping = TOPPINGS[idx.row]
+                historyOrderToModify.toppings.append(selectedTopping)
+            }
+        }
+        
+        // pass over the historyOrderToModify to the destination (OrderViewController)
+        let dst = segue.destination as! OrderViewController
+        dst.historyOrderToModify = historyOrderToModify
     }
-    */
 
 }
