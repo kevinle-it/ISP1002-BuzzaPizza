@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D42F863A28151F1A002B0440 /* HistoryOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F863928151F1A002B0440 /* HistoryOrder.swift */; };
+		D42F863D281529BA002B0440 /* HistoryOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F863C281529BA002B0440 /* HistoryOrderList.swift */; };
 		D446C3932814E5990060057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446C3922814E5990060057D /* AppDelegate.swift */; };
 		D446C3952814E5990060057D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446C3942814E5990060057D /* SceneDelegate.swift */; };
 		D446C3972814E5990060057D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446C3962814E5990060057D /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D42F863928151F1A002B0440 /* HistoryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrder.swift; sourceTree = "<group>"; };
+		D42F863C281529BA002B0440 /* HistoryOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderList.swift; sourceTree = "<group>"; };
 		D446C38F2814E5990060057D /* BuzzaPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuzzaPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D446C3922814E5990060057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D446C3942814E5990060057D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				D446C39B2814E5A00060057D /* Assets.xcassets */,
 				D446C39D2814E5A00060057D /* LaunchScreen.storyboard */,
 				D446C3A02814E5A00060057D /* Info.plist */,
+				D42F863928151F1A002B0440 /* HistoryOrder.swift */,
+				D42F863C281529BA002B0440 /* HistoryOrderList.swift */,
 			);
 			path = BuzzaPizza;
 			sourceTree = "<group>";
@@ -137,9 +143,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42F863D281529BA002B0440 /* HistoryOrderList.swift in Sources */,
 				D446C3972814E5990060057D /* ViewController.swift in Sources */,
 				D446C3932814E5990060057D /* AppDelegate.swift in Sources */,
 				D446C3952814E5990060057D /* SceneDelegate.swift in Sources */,
+				D42F863A28151F1A002B0440 /* HistoryOrder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
