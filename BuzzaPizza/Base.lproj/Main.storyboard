@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BuzzaPizza" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5rr-bB-wZt">
+                                <rect key="frame" x="109" y="94" width="196" height="36"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_pizza" translatesAutoresizingMaskIntoConstraints="NO" id="TFK-3C-1Yr">
+                                        <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="f94-xC-7Ww"/>
+                                            <constraint firstAttribute="height" constant="36" id="p3U-Ec-Otu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand_buzza_pizza" translatesAutoresizingMaskIntoConstraints="NO" id="TLo-1r-z9E">
+                                        <rect key="frame" x="46" y="0.0" width="150" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Iwc-Ib-OxN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIx-v3-5oU">
+                                <rect key="frame" x="20" y="160" width="114" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Jh3-dk-y4D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXs-jy-H0c">
+                                <rect key="frame" x="20" y="214" width="374" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_pizza" translatesAutoresizingMaskIntoConstraints="NO" id="Vcq-6G-t9x">
+                                        <rect key="frame" x="20" y="37.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="8P5-6n-JFh"/>
+                                            <constraint firstAttribute="width" constant="25" id="BAc-jj-GEC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customize Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-JD-wMv">
+                                        <rect key="frame" x="55" y="35.5" width="192" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_forward" translatesAutoresizingMaskIntoConstraints="NO" id="WGo-tj-nYq">
+                                        <rect key="frame" x="323" y="40" width="31" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="31" id="1A0-3b-5Jh"/>
+                                            <constraint firstAttribute="height" constant="20" id="gXf-N1-bfx"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Zv-4X-kXx"/>
+                                    <constraint firstItem="WGo-tj-nYq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4TO-JD-wMv" secondAttribute="trailing" constant="8" symbolic="YES" id="BTn-QA-eEk"/>
+                                    <constraint firstItem="4TO-JD-wMv" firstAttribute="centerY" secondItem="dXs-jy-H0c" secondAttribute="centerY" id="JJK-ki-p7Z"/>
+                                    <constraint firstItem="Vcq-6G-t9x" firstAttribute="centerY" secondItem="dXs-jy-H0c" secondAttribute="centerY" id="MeE-t6-wYN"/>
+                                    <constraint firstItem="WGo-tj-nYq" firstAttribute="centerY" secondItem="dXs-jy-H0c" secondAttribute="centerY" id="NKh-Yv-fJu"/>
+                                    <constraint firstAttribute="trailing" secondItem="WGo-tj-nYq" secondAttribute="trailing" constant="20" id="cAz-WO-TSR"/>
+                                    <constraint firstItem="4TO-JD-wMv" firstAttribute="leading" secondItem="Vcq-6G-t9x" secondAttribute="trailing" constant="10" id="cbj-Q7-JHK"/>
+                                    <constraint firstItem="Vcq-6G-t9x" firstAttribute="leading" secondItem="dXs-jy-H0c" secondAttribute="leading" constant="20" id="w3n-Z8-4oU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dXs-jy-H0c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dgu-gr-LKl"/>
+                            <constraint firstItem="5rr-bB-wZt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="L2l-hA-pai"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eIx-v3-5oU" secondAttribute="trailing" id="QId-VX-K6v"/>
+                            <constraint firstItem="5rr-bB-wZt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V5Q-CO-S8a"/>
+                            <constraint firstItem="eIx-v3-5oU" firstAttribute="top" secondItem="5rr-bB-wZt" secondAttribute="bottom" constant="30" id="e2u-KZ-NNA"/>
+                            <constraint firstItem="dXs-jy-H0c" firstAttribute="top" secondItem="eIx-v3-5oU" secondAttribute="bottom" constant="30" id="nCT-ZI-cgL"/>
+                            <constraint firstItem="dXs-jy-H0c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uPh-kc-muo"/>
+                            <constraint firstItem="eIx-v3-5oU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y2J-jS-XPd"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brand_buzza_pizza" width="952" height="232"/>
+        <image name="ic_arrow_forward" width="31" height="20"/>
+        <image name="ic_pizza" width="25" height="22"/>
+        <image name="logo_pizza" width="29" height="27"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
