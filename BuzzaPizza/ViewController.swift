@@ -56,6 +56,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "edit", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,9 +101,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        // pass over the movieList to the destination (AddMovieViewController)
+        // pass over the historyOrderList to the destination (ToppingTableViewController) and then (OrderViewController) afterward
         let dst = segue.destination as! ToppingTableViewController
         dst.historyOrderList = historyOrderList
+        
+        // pass over the current mode and selected row index (if any) to the destination (DetailsViewController)
+        if segue.identifier == "edit" {
+            dst.isEditMode = true
+            if let selectedRow = tableView.indexPathForSelectedRow?.row {
+                dst.selectedOrderIndex = selectedRow
+            }
+        } else if segue.identifier == "add" {
+            dst.isEditMode = false
+        }
     }
 }
 

@@ -9,6 +9,11 @@ import UIKit
 
 class ToppingTableViewController: UITableViewController {
     
+    let TOPPINGS = ["Pepperoni", "Bacon", "Mushroom", "Tomatoes", "Olives", "Green Peppers", "Onions", "Jalapenos"]
+    let SELECTED_ROW_COLOR = UIColor(red: CGFloat(3.0/255), green: CGFloat(218.0/255), blue: CGFloat(197.0/255), alpha: 1)
+    let DEFAULT_ROW_COLOR = UIColor(white: 0, alpha: 0)
+    var toppingSelectionStatuses = Array(repeating: false, count: 8)
+    
     var historyOrderList: HistoryOrderList!
     var selectedOrderIndex: Int?
     var isEditMode: Bool = false
@@ -21,29 +26,84 @@ class ToppingTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Set selected topping of history order (to update)
+        if isEditMode && selectedOrderIndex != nil {
+            let selectedOrder = historyOrderList.hisroryOrders[selectedOrderIndex!]
+            let selectedToppingList = selectedOrder.toppings
+            
+            for (index, tp) in TOPPINGS.enumerated() {
+                if selectedToppingList.contains(tp) {
+                    // Init the status list
+                    toppingSelectionStatuses[index] = true
+                    // Select the rows
+                    let indexPath = IndexPath(row: index, section: 0)
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
+                }
+            }
+        }
+    }
+    
+    // Reload table view data after go back from order scene to this scene to show newly added history order (if any)
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return TOPPINGS.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topping", for: indexPath)
 
         // Configure the cell...
+        let currentToppingRow = TOPPINGS[indexPath.row]
+        cell.textLabel!.text = currentToppingRow
+        cell.selectionStyle = .none
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedCell = tableView.cellForRow(at: indexPath)
+        else { return }
+        selectedCell.contentView.backgroundColor = SELECTED_ROW_COLOR
+        
+        toppingSelectionStatuses[indexPath.row] = true
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard let selectedCell = tableView.cellForRow(at: indexPath)
+        else { return }
+        selectedCell.contentView.backgroundColor = DEFAULT_ROW_COLOR
+        
+        toppingSelectionStatuses[indexPath.row] = false
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let selectedCell = tableView.cellForRow(at: indexPath)
+        else { return nil }
+        
+        if toppingSelectionStatuses[indexPath.row] {
+            tableView.deselectRow(at: indexPath, animated: false)
+            toppingSelectionStatuses[indexPath.row] = false
+            selectedCell.contentView.backgroundColor = DEFAULT_ROW_COLOR
+            return nil
+        }
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        toppingSelectionStatuses[indexPath.row] = true
+        selectedCell.contentView.backgroundColor = SELECTED_ROW_COLOR
+        return indexPath
+    }
 
     /*
     // Override to support conditional editing of the table view.
