@@ -158,11 +158,35 @@
                             <outlet property="delegate" destination="NJo-pv-VgP" id="RgX-y8-nVC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Toppings" id="8n0-ja-Q86"/>
+                    <navigationItem key="navigationItem" title="Choose Toppings" id="8n0-ja-Q86">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="lNY-GS-G0G">
+                            <connections>
+                                <segue destination="5bP-PO-iYI" kind="show" id="VrD-7c-wPs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JLm-fy-QXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="862" y="94"/>
+        </scene>
+        <!--Order-->
+        <scene sceneID="Uho-CR-wV5">
+            <objects>
+                <viewController id="5bP-PO-iYI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iRy-c3-e5l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5QY-my-gBT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Order" id="Dga-ns-1Tc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GOh-kT-Kf4"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zth-d4-NH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="94"/>
         </scene>
     </scenes>
     <resources>
