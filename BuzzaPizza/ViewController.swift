@@ -10,6 +10,15 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func toggleEditMode(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            sender.title = "Edit"   // reset button title to edit when done editing
+        } else {
+            tableView.setEditing(true, animated: true)
+            sender.title = "Done"   // change button title to done when user click to enter edit mode
+        }
+    }
     var historyOrderList: HistoryOrderList!
 
     override func viewDidLoad() {
@@ -60,6 +69,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            historyOrderList.removeHistoryOrder(position: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

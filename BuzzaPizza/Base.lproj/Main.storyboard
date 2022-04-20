@@ -129,7 +129,13 @@
                             <constraint firstItem="Ldh-t0-IxM" firstAttribute="top" secondItem="eIx-v3-5oU" secondAttribute="bottom" constant="15" id="zuP-8y-Bas"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="QqO-Lm-RvZ"/>
+                    <navigationItem key="navigationItem" title="Home" id="QqO-Lm-RvZ">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="54u-pV-d7Y">
+                            <connections>
+                                <action selector="toggleEditMode:" destination="BYZ-38-t0r" id="hgI-tW-EJb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hB6-hM-Xk6" id="DYG-cJ-476"/>
                     </connections>
