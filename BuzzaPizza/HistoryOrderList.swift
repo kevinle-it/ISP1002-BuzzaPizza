@@ -10,7 +10,9 @@ import Foundation
 class HistoryOrderList {
     var hisroryOrders: [HistoryOrder] = []
     
-    init() {
+    init() {}
+    
+    init(autofilled: Bool) {
         let toppings = ["Pepperoni", "Bacon", "Mushroom", "Tomatoes", "Olives", "Green Peppers", "Onions", "Jalapenos"]
         var order: HistoryOrder!
         for _ in 1...10 {
