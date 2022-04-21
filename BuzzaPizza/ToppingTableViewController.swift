@@ -9,7 +9,16 @@ import UIKit
 
 class ToppingTableViewController: UITableViewController {
     
-    let TOPPINGS = ["Pepperoni", "Bacon", "Mushroom", "Tomatoes", "Olives", "Green Peppers", "Onions", "Jalapenos"]
+    let TOPPINGS = [
+        NSLocalizedString("Pepperoni", comment: "A pizza topping"),
+        NSLocalizedString("Bacon", comment: "A pizza topping"),
+        NSLocalizedString("Mushroom", comment: "A pizza topping"),
+        NSLocalizedString("Tomatoes", comment: "A pizza topping"),
+        NSLocalizedString("Olives", comment: "A pizza topping"),
+        NSLocalizedString("Green Peppers", comment: "A pizza topping"),
+        NSLocalizedString("Onions", comment: "A pizza topping"),
+        NSLocalizedString("Jalapenos", comment: "A pizza topping")
+    ]
     let SELECTED_ROW_COLOR = UIColor(red: CGFloat(3.0/255), green: CGFloat(218.0/255), blue: CGFloat(197.0/255), alpha: 1)
     let DEFAULT_ROW_COLOR = UIColor(white: 0, alpha: 0)
     var toppingSelectionStatuses = Array(repeating: false, count: 8)

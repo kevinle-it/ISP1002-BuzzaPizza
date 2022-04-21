@@ -11,6 +11,7 @@
 		D42F863D281529BA002B0440 /* HistoryOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F863C281529BA002B0440 /* HistoryOrderList.swift */; };
 		D42F8642281539F6002B0440 /* ToppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F8641281539F6002B0440 /* ToppingTableViewController.swift */; };
 		D42F864A281577D9002B0440 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F8649281577D9002B0440 /* OrderViewController.swift */; };
+		D42F865328165790002B0440 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D42F865528165790002B0440 /* Localizable.strings */; };
 		D446C3932814E5990060057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446C3922814E5990060057D /* AppDelegate.swift */; };
 		D446C3952814E5990060057D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446C3942814E5990060057D /* SceneDelegate.swift */; };
 		D446C3972814E5990060057D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446C3962814E5990060057D /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		D42F8641281539F6002B0440 /* ToppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewController.swift; sourceTree = "<group>"; };
 		D42F8649281577D9002B0440 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		D42F864D281650F7002B0440 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Main.strings"; sourceTree = "<group>"; };
+		D42F865428165790002B0440 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D446C38F2814E5990060057D /* BuzzaPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuzzaPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D446C3922814E5990060057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D446C3942814E5990060057D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D446C3922814E5990060057D /* AppDelegate.swift */,
 				D446C3942814E5990060057D /* SceneDelegate.swift */,
 				D446C3962814E5990060057D /* ViewController.swift */,
+				D42F865528165790002B0440 /* Localizable.strings */,
 				D446C3982814E5990060057D /* Main.storyboard */,
 				D446C39B2814E5A00060057D /* Assets.xcassets */,
 				D446C39D2814E5A00060057D /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D446C39F2814E5A00060057D /* LaunchScreen.storyboard in Resources */,
+				D42F865328165790002B0440 /* Localizable.strings in Resources */,
 				D446C39C2814E5A00060057D /* Assets.xcassets in Resources */,
 				D446C39A2814E5990060057D /* Main.storyboard in Resources */,
 			);
@@ -164,6 +168,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D42F865528165790002B0440 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D42F865428165790002B0440 /* fr-CA */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D446C3982814E5990060057D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

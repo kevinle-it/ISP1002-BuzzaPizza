@@ -13,10 +13,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func toggleEditMode(_ sender: UIBarButtonItem) {
         if tableView.isEditing {
             tableView.setEditing(false, animated: true)
-            sender.title = "Edit"   // reset button title to edit when done editing
+            sender.title = NSLocalizedString("Edit", comment: "Button to enable editing table rows")   // reset button title to edit when done editing
         } else {
             tableView.setEditing(true, animated: true)
-            sender.title = "Done"   // change button title to done when user click to enter edit mode
+            sender.title = NSLocalizedString("Done", comment: "Button to disable editing table rows")   // change button title to done when user click to enter edit mode
         }
     }
     var historyOrderList: HistoryOrderList!
