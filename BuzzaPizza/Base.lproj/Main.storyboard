@@ -172,7 +172,7 @@
                     <navigationItem key="navigationItem" title="Choose Toppings" id="8n0-ja-Q86">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="lNY-GS-G0G">
                             <connections>
-                                <segue destination="5bP-PO-iYI" kind="show" id="VrD-7c-wPs"/>
+                                <segue destination="5bP-PO-iYI" kind="show" identifier="segueFromToppingsToOrder" id="VrD-7c-wPs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

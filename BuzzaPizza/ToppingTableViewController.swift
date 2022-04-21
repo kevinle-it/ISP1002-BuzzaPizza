@@ -175,5 +175,18 @@ class ToppingTableViewController: UITableViewController {
         let dst = segue.destination as! OrderViewController
         dst.historyOrderToModify = historyOrderToModify
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "segueFromToppingsToOrder" {
+            if let indexPaths = tableView.indexPathsForSelectedRows {
+                if indexPaths.count == 0 {
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+        return true
+    }
 
 }
