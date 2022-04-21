@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HistoryOrder {
+class HistoryOrder : NSObject, NSCoding {
     var id = UUID().uuidString
     var toppings: [String] = []
     var name = ""
@@ -16,11 +16,11 @@ class HistoryOrder {
     var zipCode = ""
     var toppingText = ""
     
-    init() {}
+    override init() {}
     
     init(toppings: [String]) {
+        super.init()
         self.toppings = toppings
-        
         updateToppingText()
     }
 
@@ -50,5 +50,27 @@ class HistoryOrder {
         self.address = address
         self.city = city
         self.zipCode = zipCode
+    }
+
+    // Encode for archiving item data
+    func encode(with coder: NSCoder) {
+        coder.encode(toppings, forKey: "toppings")
+        coder.encode(name, forKey: "name")
+        coder.encode(address, forKey: "address")
+        coder.encode(city, forKey: "city")
+        coder.encode(zipCode, forKey: "zipCode")
+    }
+
+    // Decode item data from archive
+    required init?(coder: NSCoder) {
+        toppings = coder.decodeObject(forKey: "toppings") as! [String]
+        name = coder.decodeObject(forKey: "name") as! String
+        address = coder.decodeObject(forKey: "address") as! String
+        city = coder.decodeObject(forKey: "city") as! String
+        zipCode = coder.decodeObject(forKey: "zipCode") as! String
+        
+        super.init()
+        
+        updateToppingText()
     }
 }

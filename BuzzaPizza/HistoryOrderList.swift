@@ -9,8 +9,21 @@ import Foundation
 
 class HistoryOrderList {
     var hisroryOrders: [HistoryOrder] = []
+    let historyOrdersURL: URL = {
+        let documentDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentDirectories.first!
+        return documentDirectory.appendingPathComponent("hitoryOrders.archive")
+    }()
     
-    init() {}
+    // Load data from archive on History Order List initializing
+    init() {
+        do {
+            let data = try Data(contentsOf: historyOrdersURL)
+            hisroryOrders = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [HistoryOrder]
+        } catch let err {
+            print(err)
+        }
+    }
     
     init(autofilled: Bool) {
         let toppings = ["Pepperoni", "Bacon", "Mushroom", "Tomatoes", "Olives", "Green Peppers", "Onions", "Jalapenos"]
@@ -47,4 +60,14 @@ class HistoryOrderList {
         hisroryOrders.insert(temp, at: to)
     }
     */
+    
+    // Archive history orders data to document directory
+    func save() {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: hisroryOrders, requiringSecureCoding: false)
+            try data.write(to: historyOrdersURL)
+        } catch let err {
+            print(err)
+        }
+    }
 }
